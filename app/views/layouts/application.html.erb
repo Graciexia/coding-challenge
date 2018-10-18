@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CodeingChallenge</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>BlogWithComments</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<section>
+  <div class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to 'Career Plug', root_path, class: "navbar-item nav-front" %>
+          <span></span>
+          <span></span>
+          <span></span>
+          </span>
+        </div>
+
+        <div class="navbar-end">
+          <%= link_to "+ New Post", new_post_path, class:"navbar-btn nav-front" %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+<%= yield %>
+</body>
 </html>
