@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   def index
     # Return all `Post`
+
   end
 
   def new
-    # Return view to create a new Post
+    @post = Post.new
   end
 
   def create
