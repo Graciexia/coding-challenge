@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @time_ago = true if Time.now - @post.created_at < 24.hours
   end
 
   def edit
