@@ -1,1 +1,38 @@
-<!-- View for showing a single `Post` -->
+<section class="section">
+  <div class="container" id="post-container" data-post-id="<%= @post.id %>" data-post-slug="<%= @post.slug %>">
+    <div class="row">
+      <h1><%= @post.title %></h1>
+    </div>
+    <div class="row">
+      <p><%= @post.body %></p>
+    </div>
+    <div class="row">
+      <% if @time_ago %>
+        <%= time_ago_in_words(@post.created_at) + ' ago' %>
+      <% else %>
+        <p><%= @post.created_at.in_time_zone('Central Time (US & Canada)').strftime("%B %-d, %Y at %-l:%M%P (%Z)") %></p>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-10"></div>
+      <div class="col-md-2">
+        <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary" %>
+        <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark" %>
+      </div>
+    </div>
+  </div>
+</section>
+<hr width="75%" color="black">
+<section class="section">
+  <div class="container">
+    <h3>Comments</h3>
+    <div class="container">
+      <div class="form-group">
+        <textarea class="form-control" id="comment-content" rows="2" placeholder="Enter your comment..." required></textarea>
+        <button id="add-comment-button" type="submit" class="btn btn-primary" style="width: 1080px">Post Comment</button>
+      </div>
+    </div>
+    <div id="comment-list" class="container">
+    </div>
+  </div>
+</section>
